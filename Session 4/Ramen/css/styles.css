@@ -1,0 +1,71 @@
+.header-class {
+    background-color: aqua;
+    text-align: center;
+}
+
+#breadcrumbs ul {
+    font-weight: bold;
+    margin: 10px 10px;
+    list-style: none;
+}
+
+#tonkotsu {
+    max-width: 100%;
+    height: auto;
+}
+
+#shoyu {
+    max-width: 100%;
+    height: auto;
+}
+
+#miso {
+    max-width: 100%;
+    height: auto;
+}
+
+#veggie {
+    max-width: 100%;
+    height: auto;
+}
+
+#item1 {
+    font-style: italic;
+    font-weight: bold;
+    border: 1em;
+}
+
+#item2 {
+    font-style: normal;
+    border: 1em;
+}
+
+#item3 {
+    font-style: oblique;
+    border: 1em;
+}
+
+#item4 {
+    font-style: inherit;
+    border: 1em;
+}
+
+thead {
+    color: aqua;
+    font-style: italic;
+    margin: 5px;
+}
+
+tbody {
+    color: crimson;
+    font-style: italic;
+    margin: 5px;
+}
+
+.nav1 {
+    color: brown;
+}
+
+.nav2 {
+    color: blueviolet;
+}
