@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+
+    <!-- Bootstrap CSS and JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+
+    <!--Fonts from Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap" rel="stylesheet">
+
+    <style>
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-family: 'Single Day', cursive;
+        }
+
+        /* Icon margin */
+        .navbar-brand img {
+            margin-right: 10px;
+        }
+
+        /* Brand font size */
+        .navbar-brand span {
+            font-size: 2rem;
+
+        }
+
+        /* Responsive carousel images */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            max-height: 800px;
+            border-radius: 15px;
+        }
+
+        /* Overlay text on the images in carousel */
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-style: italic;
+            font-weight: bold;
+            text-align: center;
+            font-size: 3vw;
+
+        }
+
+        /* Custom CSS for transparent button */
+        .transparent-btn {
+            font-size: 1.5rem;
+            position: absolute;
+            top: 70%;
+            /* Adjust the distance from the top */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .transparent-btn:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            /* Adjust the transparency as needed */
+        }
+
+        /* Style for the intro content */
+        .intro_section {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin: 50px 0;
+        }
+
+        /* Use the half to display img */
+        .intro_section img {
+            max-width: 50%;
+            border-radius: 15px;
+        }
+
+        /* Another part to display text */
+        .intro_section_text {
+            max-width: 40%;
+        }
+
+        /* Title of the intro */
+        .intro_section_text h2 {
+            font-size: 50px;
+            font-family: 'Great Vibes', cursive;
+
+        }
+
+        /* Subtitle of the intro */
+        .intro_subtitle {
+            font-weight: bolder;
+            font-size: 40px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        /* Main of the intro */
+        .intro_main {
+            font-size: 20px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        /* The Book table botton on the index page */
+        .book_btn {
+            font-size: 1.5rem;
+            background-color: #6F4E37;
+            /* Bootstrap primary color */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            /* Adjust the margin as needed */
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .book_btn:hover {
+            background-color: #0056b3;
+            /* Darker shade on hover */
+        }
+
+        /* Adjust text size on small screens */
+        @media (max-width:768px) {
+            .carousel-caption {
+                font-size: 5vw;
+            }
+
+            /* Add margin to separate button from text */
+            .transparent-btn {
+                position: relative;
+                padding: 1.5vw 3vw;
+                font-size: 3vw;
+                top: auto;
+                left: auto;
+                transform: none;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #985e49;">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="{{url_for('index')}}">
+                <img src="/static/svg/coffee-svgrepo-com.svg" alt="Logo" width="50" height="40"
+                    class="d-inline-block align-text-top">
+                <span>Jazz Cafe</span>
+            </a>
+
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="{{url_for('index')}}">Home</a>
+                    <a class="nav-link" href="{{url_for('menu')}}">Menu</a>
+                    <a class="nav-link" href="{{url_for('reserve')}}">Reserve</a>
+                </div>
+                <div class="navbar-nav">
+                    <a class="nav-link" href="{{url_for('login')}}"><img src="/static/svg/user-alt-1-svgrepo-com.svg"
+                            alt="Login" width="20" height="20"></a>
+                    <a class="nav-link" href="{{url_for('register')}}"><img
+                            src="/static/svg/registration-svgrepo-com.svg" alt="Register" width="20" height="20"></a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel"
+        data-bs-interval="3000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="static\img\cafe_1.jpg" class="d-block" alt="cafe_1">
+                <div class="carousel-caption">
+                    <p>ENJOY YOUR COFFEE IN CAMPUS</p>
+                    <a href="{{url_for('menu')}}" class="btn btn-primary transparent-btn">View Menu</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="static\img\cafe_2.jpeg" class="d-block" alt="cafe_2">
+                <div class="carousel-caption">
+                    <p>AMAZING TASTE AND QUITE PLACE</p>
+                    <a href="{{url_for('menu')}}" class="btn btn-primary transparent-btn">View Menu</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="static\img\cafe_3.jpg" class="d-block" alt="cafe_3">
+                <div class="carousel-caption">
+                    <p>PLAY YOUR FAVOURITE JAZZ MUSIC HERE</p>
+                    <a href="{{url_for('menu')}}" class="btn btn-primary transparent-btn">View Menu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container intro_section">
+        <img src="static\img\cafe_4.jpg" alt="Image">
+        <div class="intro_section_text">
+            <h2>Discover</h2>
+            <p class="intro_subtitle">Our Story</p>
+            <p class="intro_main">Indulge in a unique fusion of rhythm and relaxation at Jazz Cafe, the campus's
+                premier jazz music-themed cafe. Nestled in the heart of the University of Warwick, our vibrant space
+                offers more than just a cup of coffee—it's a symphony of flavors and a haven for both coffee enthusiasts
+                and jazz lovers. Discover the perfect synergy of coffee, study, and jazz at Jazz Cafe—a place where
+                every sip and note harmonize to create a distinctive and memorable experience. Join us for a cup, and
+                let the jazz vibes carry you away.</p>
+            <a href="#" class="book_btn">Book a Table Now</a>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="text-white py-4" style="background-color: #985e49;">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Section -->
+                <div class="col-md-6">
+                    <h5>Contact Us</h5>
+                    <p>
+                        <img src="/static/svg/address-svgrepo-com.svg" alt="Address" width="20" height="20"
+                            class="me-2">
+                        University of Warwick, Coventry, CV4 7AL
+                    </p>
+                    <p>
+                        <img src="/static/svg/email-1-svgrepo-com.svg" alt="Email" width="20" height="20" class="me-2">
+                        info@jazzcafe.com
+                    </p>
+                    <p>
+                        <img src="/static/svg/phone-svgrepo-com.svg" alt="Phone" width="20" height="20" class="me-2">
+                        +1234567890
+                    </p>
+                </div>
+
+                <!-- Social Media Section -->
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <h5>Follow Us</h5>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="https://www.linkedin.com/school/uniofwarwick/" target="_blank">
+                                <img src="/static/svg/linkedin-svgrepo-com.svg" alt="Linkedin" width="30" height="30">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.instagram.com/uniofwarwick/" target="_blank">
+                                <img src="/static/svg/instagram-svgrepo-com.svg" alt="Instagram" width="30" height="30">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.facebook.com/warwickuniversity" target="_blank">
+                                <img src="/static/svg/facebook-svgrepo-com.svg" alt="Facebook" width="30" height="30">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

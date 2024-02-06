@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+
+    <!-- Bootstrap CSS and JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+
+    <!--Fonts from Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap" rel="stylesheet">
+
+    <style>
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-family: 'Single Day', cursive;
+        }
+
+        /* Icon margin */
+        .navbar-brand img {
+            margin-right: 10px;
+        }
+
+        /* Brand font size */
+        .navbar-brand span {
+            font-size: 2rem;
+        }
+
+        /* Add rounded corners to the image */
+        .rounded-image {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        /* Style for the text on the image */
+        .image-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 3vw;
+            font-family: 'Great Vibes', cursive;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar Section -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #985e49;">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="{{url_for('index')}}">
+                <img src="/static/svg/coffee-svgrepo-com.svg" alt="Logo" width="50" height="40"
+                    class="d-inline-block align-text-top">
+                <span>Jazz Cafe</span>
+            </a>
+
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="{{url_for('index')}}">Home</a>
+                    <a class="nav-link" href="{{url_for('menu')}}">Menu</a>
+                    <a class="nav-link" href="{{url_for('reserve')}}">Reserve</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Head Image Section-->
+    <div class="rounded-image">
+        <img src="/static/img/Cafe_1.jpg" class="img-fluid" alt="menu">
+        <div class="image-text">View Reservations</div>
+    </div>
+
+    <!-- Main Body Section -->
+    <h1>View Reservations</h1>
+    <h2>Existing Reservations</h2>
+    {% if reservations %}
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Number of People</th>
+            <th>Table Type</th>
+            <th>Music Artist</th>
+            <th>Contact Phone</th>
+            <th>Action</th>
+        </tr>
+        {% for reservation in reservations %}
+        <tr>
+            <td>{{ reservation[2] }}</td>
+            <td>{{ reservation[3] }}</td>
+            <td>{{ reservation[4] }}</td>
+            <td>{{ reservation[5] }}</td>
+            <td>{{ reservation[6] }}</td>
+            <td>{{ reservation[7] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>There are currently no bookings</p>
+    {% endif %}
+
+
+    <!-- Footer Section -->
+    <footer class="text-white py-4" style="background-color: #985e49;">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Section -->
+                <div class="col-md-6">
+                    <h5>Contact Us</h5>
+                    <p>
+                        <img src="/static/svg/address-svgrepo-com.svg" alt="Address" width="20" height="20"
+                            class="me-2">
+                        University of Warwick, Coventry, CV4 7AL
+                    </p>
+                    <p>
+                        <img src="/static/svg/email-1-svgrepo-com.svg" alt="Email" width="20" height="20" class="me-2">
+                        info@jazzcafe.com
+                    </p>
+                    <p>
+                        <img src="/static/svg/phone-svgrepo-com.svg" alt="Phone" width="20" height="20" class="me-2">
+                        +1234567890
+                    </p>
+                </div>
+
+                <!-- Social Media Section -->
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <h5>Follow Us</h5>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="https://www.linkedin.com/school/uniofwarwick/" target="_blank">
+                                <img src="/static/svg/linkedin-svgrepo-com.svg" alt="Linkedin" width="30" height="30">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.instagram.com/uniofwarwick/" target="_blank">
+                                <img src="/static/svg/instagram-svgrepo-com.svg" alt="Instagram" width="30" height="30">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.facebook.com/warwickuniversity" target="_blank">
+                                <img src="/static/svg/facebook-svgrepo-com.svg" alt="Facebook" width="30" height="30">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
